@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    
+    
+    <input type="text" placeholder="Stadtnamen hier eintragen" id="town"><br />
+    <button onclick="search()">ausführen</button>
+
+    <div id="downloadStarted" style="display: none;">
+
+        Anzahl Seiten: <span id="countPages"></span><br />
+        Insgesamt Anzahl an Einträgen (ca.): <span id="allCount"></span><br />
+        Runtergeladene Einträge: <span id="downloaded"></span>
+    </div>
+    <script src="scrapper.js"></script>
+  </body>
+</html>

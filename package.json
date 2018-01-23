@@ -1,0 +1,21 @@
+{
+  "name": "tripadvisor_scrapper",
+  "version": "1.0.0",
+  "description": "A scrapper for restaurants on tripadvisor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Markus Springer",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  },
+  "dependencies": {
+    "electron-debug": "^1.5.0",
+    "json2xls": "^0.1.2",
+    "puppeteer": "^1.0.0"
+  }
+}
