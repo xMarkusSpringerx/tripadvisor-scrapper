@@ -12,7 +12,6 @@ let town = "";
 let currentIndex = 0;
 async function run() {
   document.getElementById('downloadStarted').style.display = 'block';
-
   const browser = await puppeteer.launch({
       headless: true
   });
@@ -39,16 +38,20 @@ async function run() {
 
   for (let j = 1; j <= pageNumbers; j++) {
 
-    await parsePage(browser, page);
+    try {
 
+      await parsePage(browser, page);
 
-    const PAGE_SELECTOR = '#EATERY_LIST_CONTENTS > div.deckTools.btm > div > a.nav.next.rndBtn.ui_button.primary.taLnk';
-    console.log("Neue Seite");
-    await page.click(PAGE_SELECTOR);
-    await page.waitFor(3*1000);
-    actPage++;
+      const PAGE_SELECTOR = '#EATERY_LIST_CONTENTS > div.deckTools.btm > div > a.nav.next.rndBtn.ui_button.primary.taLnk';
+      console.log("Neue Seite");
+      await page.click(PAGE_SELECTOR);
+      await page.waitFor(3*1000);
+      actPage++;
+    } catch(e) {
+      console.log(e);
+    }
+
   }
-
 
 
   let content = "Some text to save into the file";
@@ -70,8 +73,6 @@ async function run() {
 
   browser.close();
 }
-
-
 async function getNumPages(page) {
     const NUM_USER_SELECTOR = '#EATERY_LIST_CONTENTS > div.deckTools.btm > div > div > a:last-child';
     let maxPages = await page.evaluate((sel) => {
